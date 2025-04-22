@@ -1,7 +1,19 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+import { Authentication } from "@/client/sdk.gen";
+
 export default function Home() {
+  Authentication.authLogin({
+    data: {
+      username: "admin",
+      password: "admin",
+    },
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
